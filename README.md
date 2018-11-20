@@ -9,7 +9,6 @@ A simple app for viewing a range of triangle mesh file formats (.obj, .off, .ply
 git clone --recursive https://github.com/zero-impact/Graphics-Base.git
 ```
 
-
 ## Building
 ```
 mkdir build
