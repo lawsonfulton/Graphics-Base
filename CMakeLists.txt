@@ -4,7 +4,7 @@ project(GraphicsBase)
 set(CMAKE_BUILD_TYPE Release)
 
 ### libIGL options: choose between header only and compiled static library
-option(LIBIGL_USE_STATIC_LIBRARY     "Use libigl as static library" ON)
+option(LIBIGL_USE_STATIC_LIBRARY     "Use libigl as static library" OFF)
 option(LIBIGL_WITH_CGAL              "Use CGAL"                     OFF)
 option(LIBIGL_WITH_COMISO            "Use CoMiso"                   OFF)
 option(LIBIGL_WITH_CORK              "Use Cork"                     OFF)
@@ -15,18 +15,18 @@ option(LIBIGL_WITH_OPENGL            "Use OpenGL"                   ON)
 option(LIBIGL_WITH_OPENGL_GLFW       "Use GLFW"                     ON)
 option(LIBIGL_WITH_OPENGL_GLFW_IMGUI "Use ImGui"                    ON)
 option(LIBIGL_WITH_PNG               "Use PNG"                      OFF)
-option(LIBIGL_WITH_TETGEN            "Use Tetgen"                   ON)
+option(LIBIGL_WITH_TETGEN            "Use Tetgen"                   OFF)
 option(LIBIGL_WITH_TRIANGLE          "Use Triangle"                 OFF)
 option(LIBIGL_WITH_XML               "Use XML"                      OFF)
 option(LIBIGL_WITH_PYTHON            "Use Python"                   OFF)
 option(LIBIGL_WITHOUT_COPYLEFT       "Disable Copyleft libraries"   OFF)
 
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/libigl/shared/cmake)
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/extern/libigl/cmake)
 include(libigl)
 
 ### Add your project files
 include_directories("src/")
-file(GLOB SRCFILES src/*.cpp)
+file(GLOB SRCFILES src/*.cpp src/*.h)
 
-add_executable(${ProjectName} ${SRCFILES})
-target_link_libraries(${ProjectName} core igl::core igl::opengl igl::opengl_glfw igl::opengl_glfw_imgui)
+add_executable(${PROJECT_NAME} src/main.cpp)
+target_link_libraries(${PROJECT_NAME} igl::core igl::opengl igl::opengl_glfw igl::opengl_glfw_imgui)
