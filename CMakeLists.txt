@@ -23,9 +23,10 @@ option(LIBIGL_WITHOUT_COPYLEFT       "Disable Copyleft libraries"   OFF)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/extern/libigl/cmake)
 include(libigl)
+### ---- End of libigl
 
 ### Add your project files
-include_directories("src/")
+include_directories("src/" ${PROJECT_SOURCE_DIR}/extern/lf-utils/cpp/)
 file(GLOB SRCFILES src/*.cpp src/*.h)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
