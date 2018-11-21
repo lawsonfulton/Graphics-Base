@@ -3,6 +3,9 @@ project(GraphicsBase)
 
 set(CMAKE_BUILD_TYPE Release)
 
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 ### libIGL options: choose between header only and compiled static library
 option(LIBIGL_USE_STATIC_LIBRARY     "Use libigl as static library" OFF)
 option(LIBIGL_WITH_CGAL              "Use CGAL"                     OFF)
